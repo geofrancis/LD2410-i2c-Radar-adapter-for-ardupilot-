@@ -67,11 +67,11 @@ void readsonar(){
     else
     {
       Serial.println(F("No target"));
+      distance = 0;
     }
   }
   distance = (radar.movingTargetDistance());
   if ((radar.movingTargetEnergy()) == (0)) {
-    distance = 0;
     distance = (radar.stationaryTargetDistance());
     }  
      
