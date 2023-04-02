@@ -1,5 +1,6 @@
 #include <Wire.h>
-
+#include <ld2410.h>
+#include <Arduino.h>
 //Standard MaxsonarI2CXL address
 #define I2C_SLAVE_ADDR  0x70  
 
@@ -10,7 +11,7 @@
     #define RADAR_RX_PIN 16
     #define RADAR_TX_PIN 17
 
-#include <ld2410.h>
+
 
 ld2410 radar;
 
@@ -18,15 +19,7 @@ uint32_t lastReading = 0;
 bool radarConnected = false;
 
 
-
-#include <Arduino.h>
-
 uint32_t i = 0;
-
-
-//number of readings to average
-const int numReadings = 10;
-
 
 
 unsigned char data_buffer[4] = {0};
@@ -74,11 +67,7 @@ void readsonar(){
   if ((radar.movingTargetEnergy()) == (0)) {
     distance = (radar.stationaryTargetDistance());
     }  
-     
-
-    
     Serial.println();
-
 }
     //look for i2c read read request
    void receiveEvent(int howMany) {
