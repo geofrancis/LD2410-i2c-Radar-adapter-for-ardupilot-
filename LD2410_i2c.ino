@@ -54,6 +54,7 @@ void readsonar(){
         Serial.print(radar.movingTargetDistance());
         Serial.print(F("cm energy:"));
         Serial.print(radar.movingTargetEnergy());
+        Serial.println();
       }
   
     }
@@ -67,7 +68,7 @@ void readsonar(){
   if ((radar.movingTargetEnergy()) == (0)) {
     distance = (radar.stationaryTargetDistance());
     }  
-    Serial.println();
+
 }
     //look for i2c read read request
    void receiveEvent(int howMany) {
